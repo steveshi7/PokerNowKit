@@ -121,30 +121,30 @@ public class Game: NSObject {
             if debugHandAction {
                 print("#\(self.currentHand?.id ?? 0) - hole cards: \(self.currentHand?.hole?.map({$0.rawValue}) ?? [])")
             }
-        } else if msg?.starts(with: "flop") ?? false {
+        } else if msg?.starts(with: "Flop") ?? false {
             let line = msg?.slice(from: "[", to: "]")
-            self.currentHand?.flop = line?.replacingOccurrences(of: "flop: ", with: "").components(separatedBy: ", ").map({
+            self.currentHand?.flop = line?.replacingOccurrences(of: "Flop: ", with: "").components(separatedBy: ", ").map({
                 return EmojiCard(rawValue: $0)?.emojiFlip ?? .error
             })
             
             if debugHandAction {
-                print("#\(self.currentHand?.id ?? 0) - flop: \(self.currentHand?.flop?.map({$0.rawValue}) ?? [])")
+                print("#\(self.currentHand?.id ?? 0) - Flop: \(self.currentHand?.flop?.map({$0.rawValue}) ?? [])")
             }
 
-        } else if msg?.starts(with: "turn") ?? false {
+        } else if msg?.starts(with: "Turn") ?? false {
             let line = msg?.slice(from: "[", to: "]")
-            self.currentHand?.turn = EmojiCard(rawValue: line?.replacingOccurrences(of: "turn: ", with: "") ?? "error")?.emojiFlip ?? .error
+            self.currentHand?.turn = EmojiCard(rawValue: line?.replacingOccurrences(of: "Turn: ", with: "") ?? "error")?.emojiFlip ?? .error
 
             if debugHandAction {
-                print("#\(self.currentHand?.id ?? 0) - turn: \(self.currentHand?.turn?.rawValue ?? "?")")
+                print("#\(self.currentHand?.id ?? 0) - Turn: \(self.currentHand?.turn?.rawValue ?? "?")")
             }
 
-        } else if msg?.starts(with: "river") ?? false {
+        } else if msg?.starts(with: "River") ?? false {
             let line = msg?.slice(from: "[", to: "]")
-            self.currentHand?.river = EmojiCard(rawValue: line?.replacingOccurrences(of: "river: ", with: "") ?? "error")?.emojiFlip ?? .error
+            self.currentHand?.river = EmojiCard(rawValue: line?.replacingOccurrences(of: "River: ", with: "") ?? "error")?.emojiFlip ?? .error
 
             if debugHandAction {
-                print("#\(self.currentHand?.id ?? 0) - river: \(self.currentHand?.river?.rawValue ?? "?")")
+                print("#\(self.currentHand?.id ?? 0) - River: \(self.currentHand?.river?.rawValue ?? "?")")
             }
 
         } else {

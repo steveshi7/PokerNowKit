@@ -4,7 +4,7 @@ import PackageDescription
 let package = Package(
     name: "PokerNowKit",
     platforms: [
-        .macOS("10.10")
+        .macOS("10.12")
     ],
     products: [
         .library(
